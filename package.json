@@ -1,0 +1,16 @@
+{
+  "name": "mac-tray-counter",
+  "version": "0.1.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "gen-icons": "node gen-icons.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^24.3.1",
+    "canvas": "^2.11.2"
+  }
+}
