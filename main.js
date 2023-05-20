@@ -1,9 +1,13 @@
 const { app, Tray, nativeImage } = require("electron");
 const fs = require("fs");
+const path = require("path");
 
-const max = fs.readdirSync("./icons").length;
+const baseFolder = path.join(__dirname, "./icons");
+const max = fs.readdirSync(baseFolder).length;
 const second = 1000;
 const minute = 60000;
+const INTERVAL = minute;
+
 let timerId = null;
 let counter = 0;
 let tray = null;
@@ -14,8 +18,12 @@ app.whenReady().then(() => {
   tray.on("click", resetTimer);
 });
 
+app.on("before-quit", () => {
+  clearInterval(timerId);
+});
+
 function getIcon(i) {
-  return nativeImage.createFromPath(`./icons/${i}.png`);
+  return nativeImage.createFromPath(path.join(baseFolder, `${i}.png`));
 }
 
 function startTimer() {
@@ -28,7 +36,7 @@ function startTimer() {
     }
 
     clearInterval(timerId);
-  }, minute);
+  }, INTERVAL);
 }
 
 function resetTimer() {
