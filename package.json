@@ -9,7 +9,6 @@
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@electron-forge/cli": "^6.1.1",
