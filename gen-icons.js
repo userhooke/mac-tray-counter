@@ -8,7 +8,8 @@ const canvas = createCanvas(WIDTH, HEIGHT);
 const context = canvas.getContext("2d");
 
 context.fillStyle = "#fff";
-context.font = "bold 19px sans-serif";
+context.font = "regular 18px 'Helvetica Neue'";
+context.textAlign = "right";
 
 for (let i = 0; i <= 140; i++) {
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -21,6 +22,6 @@ for (let i = 0; i <= 140; i++) {
     context.fillStyle = "tomato";
   }
 
-  context.fillText(i, 0, 18);
+  context.fillText(i, 31, 17);
   fs.writeFileSync(`./icons/${i}.png`, canvas.toBuffer("image/png"));
 }
