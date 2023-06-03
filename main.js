@@ -30,7 +30,7 @@ function startTimer() {
   timerId = setInterval(() => {
     counter++;
 
-    if (counter <= max) {
+    if (counter < max) {
       tray.setImage(getIcon(counter));
       return;
     }
